@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:th="http://www.thymeleaf.org">
+  <head>
+  	<script type="text/javascript" th:src="@{/ckeditor/ckeditor.js}"></script>
+ 	<script type="text/javascript">
+      window.onload = function()  {
+        CKEDITOR.replace( 'editor1' );
+      };
+    </script>
+    <!-- Required meta tags -->
+    <!--===============================================================================================-->	
+	<link rel="icon" type="image/png" th:href="@{/images/icons/favicon.ico}"/>
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{vendor/bootstrap/css/bootstrap.min.css}">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{fonts/font-awesome-4.7.0/css/font-awesome.min.css}">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{fonts/Linearicons-Free-v1.0.0/icon-font.min.css}">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{vendor/animate/animate.css}">
+	<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" th:href="@{vendor/css-hamburgers/hamburgers.min.css}">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{vendor/animsition/css/animsition.min.css}">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{vendor/select2/select2.min.css}">
+	<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" th:href="@{vendor/daterangepicker/daterangepicker.css}">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{css/util.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{css/main.css}">
+	<!--===============================================================================================-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- <link rel="stylesheet" th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css}" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+ --> </head>
+  <body>
+      //Navbar
+      <nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Navbar</a>  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+    <h1>Hello, world!</h1>
+      
+      //Carousel Imagem
+      <div class="bd-example">
+    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="https://i.redd.it/e1lw5i19kl411.jpg" class="d-block w-100" alt="" id="teste">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Aqui Ficara a Galeria de Imagem Que Vira do Back-end</h5>
+            <p>embaixo Ficara a Galeria de Video Que Vira do Back-end</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="http://hdqwalls.com/wallpapers/sunset-new-york-city-img.jpg" class="d-block w-100" alt="" id="teste">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Aqui Ficara a Galeria de Imagem Que Vira do Back-end</h5>
+            <p>embaixo Ficara a Galeria de Video Que Vira do Back-end</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://is2-ssl.mzstatic.com/image/thumb/Purple111/v4/7d/e4/fb/7de4fb07-1125-a3da-4e4a-c708addb0919/pr_source.jpg/643x0w.jpg" class="d-block w-100" alt="" id="teste">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Aqui Ficara a Galeria de Imagem Que Vira do Back-end</h5>
+            <p>embaixo Ficara a Galeria de Video Que Vira do Back-end</p>
+          </div>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+    
+      //carousel Video
+      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://novomundo.vteximg.com.br/arquivos/4k-hexa-chroma-smart-tv-panasonic-tc-58ex750b.jpg?v=636498959936630000" class="d-block w-100" alt="..." id="vish">
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+  <!-- CKEDITOR -->
+  <div class="Container">
+		<div class="panel panel-default" style="margin: 10px">
+		<div class="panel-heading">
+			<h1 class="panel-title">Editor HTML</h1>
+		</div>
+			<div class="panel-body">
+      			<textarea id="editor1" name="editor1">&lt;p&gt;Valor inicial.&lt;/p&gt;</textarea>
+			</div>
+		</div>
+				
+		</div>
+      <!-- LIVE STREAM -->
+      <div class="panel panel-default" style="margin: 10px">
+		<div class="panel-heading">
+			<h1 class="panel-title">Iniciar Live Stream</h1>
+		</div>
+			<div class="panel-body">
+      			<form class="form-inline" method="post" th:object="${link}" th:action="@{/live}" >
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Link da Transmissao" th:field="*{linkNome}"/>
+						<button type="submit" class="btn btn-primary">Começar</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		
+
+
+      
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script th:src="@{https://code.jquery.com/jquery-3.3.1.slim.min.js}" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    
+    <script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js}" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    
+    <script th:src="@{https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js}" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

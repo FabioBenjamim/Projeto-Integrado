@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:th="http://www.thymeleaf.org" ValidateRequest="false">
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width"/>
+	<title>Bem vindo ao Portal São judas</title>
+	<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+	<link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}" rel="stylesheet"/>
+	<link rel="stylesheet" type="text/css" th:href="@{vendor/bootstrap/css/bootstrap.min.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{vendor/css-hamburgers/hamburgers.min.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css.css}">
+</head>
+<body>
+
+	<div class="container">
+	<div id="idCamada">
+<th:block th:text=${card.corpo}></th:block>
+</div>
+	
+	</div>
+	<div class="">
+		<form class="form-inline" method="post" th:action="@{/like/{url}(url=${card.titulo})}" >
+			<div class="form-group">
+				<button type="submit" class="btn btn-secondary" style="background-color: #311733;">Começar</button>
+			</div>
+		</form>
+	</div>
+
+
+
+<script th:inline="javascript">
+var camada = document.getElementById( "idCamada" )
+var texto = [[${card.corpo}]]; camada.innerHTML = texto;
+
+</script>
+</body>
+</html>

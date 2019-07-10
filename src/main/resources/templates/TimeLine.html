@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:th="http://www.thymeleaf.org" ValidateRequest="false">
+<head>
+	
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width"/>
+	<title>Bem vindo ao Portal São judas</title>
+	<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+	<link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}" rel="stylesheet"/>
+	<link rel="stylesheet" type="text/css" th:href="@{vendor/bootstrap/css/bootstrap.min.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{vendor/css-hamburgers/hamburgers.min.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css.css}">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark flex-column flex-md-row bd-navbar" style="background-color: #D9695F;">
+	<a class="navbar-brand" href="/index">
+		<img th:src="@{/icon/icon-one.png}" width="36" height="36" class="d-block align-top" alt="">
+  	</a>
+  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+    	<ul class="navbar-nav mr-auto">
+      		<li class="nav-item active">
+        		<a class="nav-link" href="/index">Pagina Inicial</a>
+      		</li>
+      		<li class="nav-item">
+        		<a class="nav-link" href="/politica">Politica</a>
+      		</li>
+      		<li class="nav-item">
+      			<a class="nav-link" href="/economia">Economia</a>
+      		</li>
+      		<li class="nav-item">
+      			<a class="nav-link" href="/esportes">Esportes</a>
+      		</li>
+      		<li class="nav-item">
+      			<a class="nav-link" href="/tecnologia">Tecnologia</a>
+      		</li>
+      		<li class="nav-item">
+      			<a class="nav-link" href="/ciencia">Ciencia</a>
+      		</li>
+      		<li class="nav-item">
+        		<a class="nav-link" href="/transmissao">Live Stream</a>
+      		</li>
+    	</ul>
+    		<form class="form-inline my-2 my-lg-0"  method="get" th:object="${pesquisa}" th:action="@{/buscaTag}"style="margin: 20px 0">
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Pesquise por algo" th:field="*{nome}"/>
+     			 	<button class="btn btn-lg btn-rigth btn-outline-dark" type="submit">Search</button>
+     			 </div>
+    		</form>
+			<a class="btn btn-lg btn-rigth btn-outline-dark" href="/login">Logar</a>
+  	</div>
+</nav>
+	<div  class="container">
+	<div id="minhaDiv" style="background-color: #D9695F;">
+		<button class="btn btn-secondary" style="background-color: #311733;" type="button" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1">
+    		Criar Card
+ 		</button>
+ 		  <button class="btn btn-secondary" style="background-color: #311733;" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Upload Do Material</button>
+ 		  <button class="btn btn-secondary" style="background-color: #311733;" type="button" data-toggle="collapse" data-target="#collapseExample3" aria-expanded="false" aria-controls="multiCollapseExample2">Iniciar Live Strem</button>
+ 			<div class="collapse" id="collapseExample1">
+  				<div class="card card-body" style="background-color: #D9695F;">
+				<form  method="POST" th:action="@{/posta}" th:object="${cardP}" >
+  					<div class="form-row">
+    					<div class="form-group col-sm-6">
+      						<label for="inputEmail4">Titulo</label>
+      						<input type="text" class="form-control" placeholder="Titulo do Card" th:field="*{titulo}">
+   						</div>
+    					<div class="form-group col-sm-6">
+      						<label for="inputPassword4">Descrição</label>
+      						<input type="text" class="form-control" placeholder="Breve descrição do assunto" th:field="*{descricao}">
+   						</div>
+  					</div>
+  					<div class="form-row">
+  						<div class="form-group col-sm-6">
+      						<label >Corpo da Pagina</label>
+      						<input type="text" class="form-control" placeholder="<p>asdasdasd<p>" th:field="*{corpo}">
+    					</div>
+    					<div class="form-group col-sm-4 ">
+      						<label >Imagem do card</label>
+      						<input type="text" class="form-control" placeholder="Fotos/... ou Video/..." th:field="*{nome}">
+    					</div>
+    					<div class="form-group col-sm-2 ">
+      						<label >Categoria</label>
+      						<input type="text" class="form-control" id="inputCity" placeholder="Politica/Economia/Tecnologia..." th:field="*{categoria}">
+    					</div>
+    					<div class="form-group col-sm-2 ">
+      						<label >Tag</label>
+      						<input type="text" class="form-control" placeholder="#Tutorial/#VideoAula" th:field=*{tag}>
+    					</div>
+    				</div>
+    				<div class="form-row">
+    					<div class="form-group col-sm-12">
+     	 					<textarea id="editor1" name="editor1">&lt;p&gt;Bora trabalha...&lt;/p&gt;</textarea>
+    					</div>
+  					</div>
+  					<div class="form-row">
+  						<div class="form-group col-sm-12">
+  							<button type="submit" class="btn btn-secondary" style="background-color: #311733; width:1110px;margin: 0 auto;">Postar</button>
+  						</div>
+  					</div>
+				</form>
+			</div>
+		</div>
+ 			<div class="collapse" id="collapseExample2">
+  				<div class="card card-body" style="background-color: #D9695F;">
+					<form th:action="@{/upload}" method="post" enctype="multipart/form-data">
+ 						<label for="file">Arquivo</label>
+ 						<input type="file" name="file" />
+ 						<button type="submit" class="btn btn-secondary" style="background-color: #311733;">Postar</button>
+					</form>
+				</div>
+			</div>
+			<div class="collapse" id="collapseExample3">
+  				<div class="card card-body" style="background-color: #D9695F;">
+					<form class="form-inline" method="post" th:object="${link}" th:action="@{/live}" >
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Link da Transmissao" th:field="*{linkNome}"/>
+						<button type="submit" class="btn btn-secondary" style="background-color: #311733;">Começar</button>
+					</div>
+				</form>
+				</div>
+			</div>
+		</div>
+		<button type="button" class="btn btn-secondary" style="background-color: #311733;  bottom: 250px; rigth:250px;"onclick="Mudarestado('minhaDiv')">Postar Card</button>
+		<div class="row">
+			<th:block th:each="cards : ${cards}">		
+			<div class="col-sm-4">
+			<h1 style=" color: #D9695F;"><th:block th:text="${cards.categoria}"><span class="badge badge-secondary" style="background-color: #D9695F;">New</span></h1>
+				<div id="minhaDiv" class="card text-white" style="max-width: 36rem; height: 30rem; background-color: #D9695F;margin-bottom: 50px;">
+  					<div class="card-header"><th:block th:text=${cards.categoria}></th:block></div>
+  					<th:block th:if="${cards.tipo == false}">
+  					<a th:href="@{/index/{url}(url=${cards.titulo})}"><img th:src="@{/Fotos/{url}(url=${cards.nome})}" class="card-img-top" alt="..." style="max-width: 400px; max-height: 200px"></a>
+  						</th:block>
+  						<th:block th:if="${cards.tipo == true}">
+  						<video width="349" height="200" controls="controls" preload="metadata" >
+  							<source th:src="@{/Videos/VID_20190415_194616.mp4}" type="video/mp4" />
+  						</video>
+  						</th:block>
+  						<div class="card-body">
+    						<h5 class="card-title"><th:block th:text="${cards.titulo}"></h5>
+    							<p class="card-text"><th:block th:text="${cards.descricao}"></th:block></p>
+									<div class="btn-group btn-group-toggle" data-toggle="buttons">			    		
+  										<label class="btn btn-secondary" style="background-color: #311733;">
+    										<input type="radio" name="options" id="option2" autocomplete="off"><th:block th:text=${cards.feedback}></th:block>
+  										</label>
+									</div>
+	
+  						</div>				
+				</div>
+			</div>
+			</th:block>
+		</div>
+	</div>
+
+
+<script th:src="@{https://code.jquery.com/jquery-3.3.1.slim.min.js}" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    
+<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js}" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    
+<script th:src="@{https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js}" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script >
+ var display = document.getElementById("minhaDiv").style.display = 'none';
+function Mudarestado(el) {
+    var display = document.getElementById(el).style.display;
+    if(display == "none")
+        document.getElementById(el).style.display = 'block';
+    else
+        document.getElementById(el).style.display = 'none';
+}
+</script>
+<script type="text/javascript" src="/ckeditor/ckeditor.js"></script>
+ 	<script type="text/javascript">
+      window.onload = function()  {
+        CKEDITOR.replace( 'editor1' );
+      };
+    </script>
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script>
+$(document).ready(function(e) {
+    
+    $("form[ajax=true]").submit(function(e) {
+        
+        e.preventDefault();
+        
+        var form_data = $(this).serialize();
+        var form_url = $(this).attr("action");
+        var form_method = $(this).attr("method").toUpperCase();
+        
+        $("#loadingimg").show();
+        
+        $.ajax({
+            url: form_url, 
+            type: form_method,      
+            data: form_data,     
+            cache: false,
+            success: function(returnhtml){                          
+                $("#result").html(returnhtml); 
+                $("#loadingimg").hide();                    
+            }           
+        });    
+        
+    });
+    
+});
+</script>
+</body>
+</html>

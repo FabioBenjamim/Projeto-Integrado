@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width"/>
+	<title>Hello Spring Boot</title>
+	<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+	<link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}" rel="stylesheet"/>
+</head>
+<body>
+		<div style="margin: 0 auto; max-width: 700px; text-align: center">
+		<h1>Inserir Embed de transmissao ao vivo do Youtube no seu site!</h1>
+	<div style="margin:0 auto; max-width: 700px;">
+	<!-- url para id permanente
+	https://www.youtube.com/embed/live_stream?channel=UCl5Taxjdp9HrPYeyg154Zag -->
+<iframe width="560" height="315" th:src="${link1.linkNome}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+</body>
+<!-- l5Taxjdp9HrPYeyg154Zag 
+	 {url}(url=${video.nome})}
+-->
+
+</html>

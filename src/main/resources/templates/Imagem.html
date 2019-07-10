@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width"/>
+	<title>Hello Spring Boot</title>
+	<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+	<link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="container">
+<table class="table">
+<thead>
+	<tr>
+		<th>Tags</th>
+	</tr>
+</thead>
+
+<tbody>
+	
+	<tr th:each="tags : ${tags}">
+		<td>
+		<input type="checkbox" class="form-check-input" id="exampleCheck1" th:text= "${tags.nomeTag}">
+		</td>
+	</tr>
+	
+</tbody>
+</table>
+<table class="table">
+<thead>
+	<tr>
+		<th>Categorias</th>
+	</tr>
+</thead>
+
+<tbody>
+	
+	<tr th:each="categorias : ${categorias}">
+		<td>
+		<input type="checkbox" class="form-check-input" id="exampleCheck1" th:text= "${categorias.categoria}">
+		</td>
+	</tr>
+	
+</tbody>
+</table>
+<form th:action="@{/upload}" method="post" enctype="multipart/form-data">
+ <label for="file">Arquivo</label>
+ <input type="file" name="file" />
+ <input type="submit" name="submit" value="Upload" />
+</form>
+</div>
+	
+</body>
+</html>
